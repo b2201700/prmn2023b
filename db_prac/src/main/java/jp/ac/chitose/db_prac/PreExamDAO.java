@@ -29,7 +29,8 @@ public class PreExamDAO {
         return returning;
     }
 
-    public int deletePreExam(String gakusekiCode) throws SQLException { // 演習3
+    // 演習4
+    public int deletePreExam(String gakusekiCode) throws SQLException {
         String sql = "delete from 学生情報 where 学生コード = ?"; // TODO
         int n = 0;
         try(Connection conn = DriverManager.getConnection(URL,USER_NAME,USER_PASS);
@@ -40,8 +41,9 @@ public class PreExamDAO {
         return n;
     }
 
+    // 演習6
     public int insertPreExam(String gakusekiCode, String familyName, String fistName, int point) throws SQLException{
-        String sql = ""; // TODO
+        String sql = "insert into 学生情報 values (?,?,?,?)"; // TODO
         int n = 0;
         try(Connection conn = DriverManager.getConnection(URL,USER_NAME,USER_PASS);
             PreparedStatement stmt = conn.prepareStatement(sql) ){
